@@ -17,11 +17,11 @@ python -m twine check dist/*
 
 ## Recommended path
 
-Use GitHub Actions with API tokens.
+Use GitHub Actions with a PyPI API token.
 
 Workflow:
 
-- `workflow_dispatch` publishes to TestPyPI
+- `workflow_dispatch` publishes to PyPI
 - GitHub Release `published` publishes to PyPI
 
 See:
@@ -30,15 +30,11 @@ See:
 
 ## GitHub secrets
 
-Add these repository secrets in GitHub:
+Add this repository secret in GitHub:
 
 1. `PYPI_API_TOKEN`
-2. `TEST_PYPI_API_TOKEN`
 
-The workflow uses:
-
-- `PYPI_API_TOKEN` for real PyPI releases
-- `TEST_PYPI_API_TOKEN` for manual TestPyPI publishing
+The workflow uses `PYPI_API_TOKEN` for both manual publishing and release publishing.
 
 ## Manual publish fallback
 
