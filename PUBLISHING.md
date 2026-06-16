@@ -17,7 +17,7 @@ python -m twine check dist/*
 
 ## Recommended path
 
-Use Trusted Publishing through GitHub Actions.
+Use GitHub Actions with API tokens.
 
 Workflow:
 
@@ -28,13 +28,17 @@ See:
 
 - [`.github/workflows/publish-pypi.yml`](./.github/workflows/publish-pypi.yml)
 
-## PyPI setup
+## GitHub secrets
 
-In PyPI and TestPyPI:
+Add these repository secrets in GitHub:
 
-1. Create the project or allow first publish from trusted publisher.
-2. Add a trusted publisher for this GitHub repo.
-3. Point it at the `publish-pypi.yml` workflow.
+1. `PYPI_API_TOKEN`
+2. `TEST_PYPI_API_TOKEN`
+
+The workflow uses:
+
+- `PYPI_API_TOKEN` for real PyPI releases
+- `TEST_PYPI_API_TOKEN` for manual TestPyPI publishing
 
 ## Manual publish fallback
 
